@@ -7,5 +7,4 @@ const mysql_setting = {
   host:
   user: 'root',
   password: 'pass',
-  database: 'mysql'
-}
+  database: '

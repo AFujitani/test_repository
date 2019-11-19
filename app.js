@@ -1,12 +1,16 @@
-const express = require('express')
-const app = express()
+// expressモジュールを読み込む
+const express = require('express');
 
-app.get('/login', (req, res) => res.send('Hello World!'))
-app.post('/login', (req, res) => {
-  console.log("")
-  req.id
-  req.password
+// expressアプリを生成する
+const app = express();
 
-})
+// ルート(http://localhost:3000/)にアクセスしてきたときにログイン画面を返す
+app.get('/', (req, res) => {
+res.send('/api/v1/login')
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+
+
+});
+
+// ポート3000でサーバを立てる
+app.listen(3000, () => console.log('Listening on port 3000'));
