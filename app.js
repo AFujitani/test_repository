@@ -4,13 +4,21 @@ const express = require('express');
 // expressアプリを生成する
 const app = express();
 
+app.use(express.json())
+app.use(express.urlencoded({
+  extended: true
+}));
+
+const port = process.env.PORT || 3000;
+
 // ルート(http://localhost:3000/)にアクセスしてきたときにログイン画面を返す
-app.get('/', (req, res) => {
-res.send('/api/v1/login')
+app.get('/api/v1/login/',　(req, res)　=> {
+res.send('/login.html');
 
 
 
 });
 
 // ポート3000でサーバを立てる
-app.listen(3000, () => console.log('Listening on port 3000'));
+app.listen(port);
+console.log('listen on port' + port);
