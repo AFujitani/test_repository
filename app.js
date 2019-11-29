@@ -12,8 +12,8 @@ app.use(express.urlencoded({
 const port = process.env.PORT || 3000;
 
 // ルート(http://localhost:3000/)にアクセスしてきたときにログイン画面を返す
-app.get('/api/v1/login/',　(req, res)　=> {
-res.send('/login.html');
+app.get('/login', (req, res) => {
+  res.send('/login');
 
 
 
