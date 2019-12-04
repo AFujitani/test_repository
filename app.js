@@ -3,21 +3,28 @@ const express = require('express');
 
 // expressアプリを生成する
 const app = express();
+const bodyParser = require('body-parser');
+app.use(express.static('training'));
 
-app.use(express.json())
-app.use(express.urlencoded({
-  extended: true
-}));
 
 const port = process.env.PORT || 3000;
 
-// ルート(http://localhost:3000/)にアクセスしてきたときにログイン画面を返す
-app.get('/login', (req, res) => {
-  res.send('/login');
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 
-
-
+app.get('/login', (req,res) => {
+  console.log('login')
+  res.sendFile(__dirname + '/login.html')
 });
+
+
+app.post('/post', (req, res) => {
+    console.log(req.body);
+res.render('/login', {title:'', id: req,body,id});
+    });
+
 
 // ポート3000でサーバを立てる
 app.listen(port);
